@@ -55,12 +55,12 @@ const About: React.FC = () => {
           <div className="space-y-6">
             <div className="relative group">
               <div className="relative -inset-1 dark:bg-gradient-to-r dark:from-green-500 dark:to-green-600 light:bg-gradient-to-r light:from-green-500 light:to-green-600 rounded-full blur dark:opacity-30 light:opacity-20 group-hover:dark:opacity-100 group-hover:light:opacity-60 transition duration-200"></div>
-              <div className="relative w-80 h-80 mx-auto rounded-full dark:bg-slate-900 light:bg-white p-1 dark:border dark:border-green-500/30 light:border light:border-green-300/30">
-                <div className="w-full h-full rounded-full dark:bg-slate-800 light:bg-gray-50 flex items-center justify-center">
-                  <div className="w-64 h-64 rounded-full dark:bg-gradient-to-br dark:from-green-500/20 dark:to-green-600/20 light:bg-gradient-to-br light:from-green-500/10 light:to-green-600/10 flex items-center justify-center">
-                    <span className="text-6xl font-bold dark:text-green-400 light:text-green-600">{'< />'}  </span>
-                  </div>
-                </div>
+              <div className="relative w-80 h-80 mx-auto rounded-full dark:bg-slate-900 light:bg-white p-1 dark:border dark:border-green-500/30 light:border light:border-green-300/30 overflow-hidden">
+                <img 
+                  src="/images/profile.png" 
+                  alt="Parth Azad - Full Stack Developer" 
+                  className="w-full h-full rounded-full object-cover shadow-2xl dark:shadow-green-500/20 light:shadow-green-400/20"
+                />
               </div>
             </div>
           </div>
