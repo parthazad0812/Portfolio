@@ -12,9 +12,8 @@ const Footer: React.FC = () => {
     },
     {
       icon: <FileText className="w-5 h-5" />,
-      href: '#resume',
-      label: 'Resume',
-      download: true
+      href: 'https://docs.google.com/document/d/1ECtlzvviCtQQFgWyJ3OU5UfjuqHHzZt4/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true',
+      label: 'Resume'
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
