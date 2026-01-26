@@ -289,7 +289,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, FileText } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, ExternalLink, FileText, Code2 } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [currentSkill, setCurrentSkill] = useState('');
@@ -394,11 +394,12 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              title="GitHub"
             >
               <Github className="w-6 h-6 transition-colors" />
             </a>
             <a
-              href="https://docs.google.com/document/d/1ECtlzvviCtQQFgWyJ3OU5UfjuqHHzZt4/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true"
+              href="https://docs.google.com/document/d/19XYpFwXHXgp3phHd7NW2ynqNSxY09Kcl/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
@@ -411,12 +412,14 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              title="LinkedIn"
             >
               <Linkedin className="w-6 h-6 transition-colors" />
             </a>
             <a
               href="mailto:parthazad08@gmail.com"
               className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              title="Email"
             >
               <Mail className="w-6 h-6 transition-colors" />
             </a>
@@ -425,8 +428,9 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              title="Codolio"
             >
-              <ExternalLink className="w-6 h-6 transition-colors" />
+              <Code2 className="w-6 h-6 transition-colors" />
             </a>
           </div>
 

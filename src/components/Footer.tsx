@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Heart, FileText } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Heart, FileText, Code2 } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,27 +8,32 @@ const Footer: React.FC = () => {
     {
       icon: <Github className="w-5 h-5" />,
       href: 'https://github.com/parthazad0812',
-      label: 'GitHub'
+      label: 'GitHub',
+      title: 'GitHub'
     },
     {
       icon: <FileText className="w-5 h-5" />,
-      href: 'https://docs.google.com/document/d/1ECtlzvviCtQQFgWyJ3OU5UfjuqHHzZt4/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true',
-      label: 'Resume'
+      href: 'https://docs.google.com/document/d/19XYpFwXHXgp3phHd7NW2ynqNSxY09Kcl/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true',
+      label: 'Resume',
+      title: 'Resume'
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: 'https://www.linkedin.com/in/parth-azad-7b749a281/',
-      label: 'LinkedIn'
+      label: 'LinkedIn',
+      title: 'LinkedIn'
     },
     {
       icon: <Mail className="w-5 h-5" />,
       href: 'mailto:parthazad08@gmail.com',
-      label: 'Email'
+      label: 'Email',
+      title: 'Email'
     },
     {
-      icon: <ExternalLink className="w-5 h-5" />,
+      icon: <Code2 className="w-5 h-5" />,
       href: 'https://codolio.com/profile/usnFDuX3',
-      label: 'Codolio'
+      label: 'Codolio',
+      title: 'Codolio'
     }
   ];
 
@@ -70,6 +75,7 @@ const Footer: React.FC = () => {
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="group p-3 rounded-lg dark:bg-slate-800/40 light:bg-white/60 dark:border dark:border-green-500/20 light:border light:border-green-300/30 dark:text-gray-400 light:text-gray-600 dark:hover:text-green-400 light:hover:text-green-600 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white/80"
                   aria-label={link.label}
+                  title={link.title}
                 >
                   {link.icon}
                 </a>

@@ -30,6 +30,19 @@ const Experience: React.FC = () => {
 
   const experiences = [
     {
+      title: 'Data Analyst Intern',
+      company: 'Imarticus Learning',
+      location: 'Remote',
+      period: 'Jun 2025 - Jul 2025',
+      type: 'Internship',
+      description: [
+        'Analyzed large datasets using SQL to identify trends and patterns that improved business decision-making',
+        'Built interactive dashboards in Power BI that increased reporting efficiency by 40%',
+        'Collaborated with cross-functional teams to translate business requirements into data insights',
+        'Implemented data cleaning and preprocessing pipelines that enhanced data quality'
+      ]
+    },
+    {
       title: 'Bachelor of Technology in Computer Science Engineering',
       company: 'Bennett University',
       location: 'Greater Noida, India',
@@ -43,29 +56,16 @@ const Experience: React.FC = () => {
       ]
     },
     {
-      title: 'Data Analyst Intern',
-      company: 'TechFlow Solutions',
-      location: 'Remote',
-      period: 'Jun 2024 - Aug 2024',
-      type: 'Internship',
+      title: 'Class X & XII',
+      company: 'Pratap Public School',
+      location: 'Karnal, Haryana',
+      period: 'Class X: 2020-2021 | Class XII: 2022-2023',
+      type: 'Education',
       description: [
-        'Analyzed large datasets using SQL to identify trends and patterns that improved business decision-making',
-        'Built interactive dashboards in Power BI that increased reporting efficiency by 40%',
-        'Collaborated with cross-functional teams to translate business requirements into data insights',
-        'Implemented data cleaning and preprocessing pipelines that enhanced data quality'
-      ]
-    },
-    {
-      title: 'Backend Developer',
-      company: 'InnovateTech',
-      location: 'Pune, India',
-      period: 'Jan 2024 - May 2024',
-      type: 'Freelance',
-      description: [
-        'Developed RESTful APIs using Node.js and Express.js for e-commerce applications',
-        'Designed and optimized database schemas resulting in 30% faster query performance',
-        'Implemented authentication and authorization systems with JWT tokens',
-        'Collaborated with frontend team to ensure seamless API integration'
+        'Completed Class X (2020-2021) with strong academic performance',
+        'Completed Class XII (2022-2023) with focus on PCM (Physics, Chemistry, Mathematics)',
+        'Built foundational knowledge in science and mathematics',
+        'Developed problem-solving skills through science projects and competitions'
       ]
     }
   ];

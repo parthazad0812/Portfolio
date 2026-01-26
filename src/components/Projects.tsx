@@ -255,57 +255,39 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: "Data Analytics Dashboard",
+      title: "CareerPilot",
       description:
-        "Interactive dashboard for visualizing complex datasets with real-time analytics and insights.",
+        "AI-powered career guidance platform helping users discover career paths, get personalized recommendations, and track their professional growth.",
+      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
+      tags: ["React", "Node.js", "AI/ML", "Vercel"],
+      github: "#",
+      live: "https://careerpilot-ashy.vercel.app/",
+    },
+    {
+      title: "WheelORent",
+      description:
+        "Modern car rental platform with seamless booking experience, vehicle browsing, and rental management features.",
+      image: "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg",
+      tags: ["React", "TypeScript", "Tailwind", "Vercel"],
+      github: "#",
+      live: "https://wheel-o-rent.vercel.app/",
+    },
+    {
+      title: "Resume Insight",
+      description:
+        "Smart resume analysis tool that provides insights, suggestions, and improvements for better job applications.",
+      image: "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
+      tags: ["Python", "NLP", "Flask", "Machine Learning"],
+      github: "#",
+      live: "https://resume-insight.onrender.com/",
+    },
+    {
+      title: "SuperStore Sales Analysis & 15-Day Forecast",
+      description:
+        "Comprehensive Power BI dashboard analyzing superstore sales data with interactive visualizations and 15-day sales forecasting.",
       image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg",
-      tags: ["Python", "Pandas", "Plotly", "Streamlit"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "E-commerce Backend API",
-      description:
-        "Scalable REST API with authentication, payment processing, and inventory management.",
-      image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-      tags: ["Node.js", "Express", "MongoDB", "JWT"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Algorithm Visualizer",
-      description:
-        "Interactive tool to visualize sorting and pathfinding algorithms with step-by-step execution.",
-      image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
-      tags: ["React", "TypeScript", "D3.js", "CSS"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Task Management System",
-      description:
-        "Full-stack application for team collaboration with real-time updates and progress tracking.",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-      tags: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Portfolio Analytics",
-      description:
-        "Personal portfolio with integrated analytics to track visitor engagement and interactions.",
-      image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg",
-      tags: ["React", "Google Analytics", "Tailwind", "Vercel"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Machine Learning Classifier",
-      description:
-        "ML model for image classification with web interface for real-time predictions.",
-      image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
-      tags: ["Python", "TensorFlow", "Flask", "OpenCV"],
-      github: "#",
+      tags: ["Power BI", "Data Analysis", "Forecasting", "DAX"],
+      github: "https://github.com/parthazad0812/Super_Store_Sales_Analysis_PowerBI",
       live: "#",
     },
   ];
@@ -386,24 +368,6 @@ const Projects: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent" />
-                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-green-500/20 border border-green-500/50 hover:bg-green-500/40 rounded-lg transition-all"
-                    >
-                      <Github size={16} className="text-green-400" />
-                    </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-green-500/20 border border-green-500/50 hover:bg-green-500/40 rounded-lg transition-all"
-                    >
-                      <ExternalLink size={16} className="text-green-400" />
-                    </a>
-                  </div>
                 </div>
 
                 {/* Project Info */}
@@ -414,7 +378,7 @@ const Projects: React.FC = () => {
                   <p className="dark:text-gray-300 light:text-gray-700 mb-4 leading-relaxed text-sm line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
@@ -423,6 +387,31 @@ const Projects: React.FC = () => {
                         {tag}
                       </span>
                     ))}
+                  </div>
+                  {/* Links at bottom right */}
+                  <div className="flex justify-end space-x-3 pt-3 border-t dark:border-green-500/10 light:border-green-300/20">
+                    {project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-1 dark:text-green-400 light:text-green-600 hover:dark:text-green-300 hover:light:text-green-700 transition-colors duration-200 text-xs"
+                      >
+                        <span>Repository</span>
+                        <ExternalLink size={12} />
+                      </a>
+                    )}
+                    {project.live !== "#" && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-1 dark:text-green-400 light:text-green-600 hover:dark:text-green-300 hover:light:text-green-700 transition-colors duration-200 text-xs"
+                      >
+                        <span>View</span>
+                        <ExternalLink size={12} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

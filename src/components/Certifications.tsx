@@ -64,40 +64,44 @@ const Certifications: React.FC = () => {
 
   const certifications = [
     {
-      title: 'Python for Data Science',
+      title: 'IBM Data Science Professional Certificate',
       issuer: 'IBM',
-      date: 'Aug 2024',
-      description: 'Comprehensive certification covering Python programming, data manipulation with Pandas, data visualization, and statistical analysis for data science applications.',
-      credentialId: 'IBM-PDS-2024-001',
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg',
-      skills: ['Python', 'Pandas', 'NumPy', 'Data Analysis']
+      date: '2024',
+      description: 'Comprehensive professional certification covering the full data science methodology including data analysis, visualization, machine learning, and hands-on projects with Python.',
+      credentialId: '005XTGMSE3SQ',
+      credentialUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/005XTGMSE3SQ',
+      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg',
+      skills: ['Data Science', 'Python', 'Machine Learning', 'Data Analysis']
     },
     {
-      title: 'Backend Development with Node.js',
-      issuer: 'freeCodeCamp',
-      date: 'Jul 2024',
-      description: 'Specialized certification in server-side JavaScript development, RESTful API design, database integration, and authentication systems.',
-      credentialId: 'FCC-BACKEND-2024-789',
-      image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg',
-      skills: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs']
-    },
-    {
-      title: 'Data Structures & Algorithms',
+      title: 'Algorithmic Toolbox',
       issuer: 'Coursera',
-      date: 'Jun 2024',
-      description: 'In-depth course covering fundamental data structures, algorithm design techniques, complexity analysis, and problem-solving strategies.',
-      credentialId: 'COURSERA-DSA-456123',
-      image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg',
-      skills: ['Algorithms', 'Data Structures', 'Problem Solving', 'Java']
+      date: '2024',
+      description: 'In-depth course covering fundamental algorithmic techniques and ideas for computational problems, focusing on algorithm design, complexity analysis, and problem-solving strategies.',
+      credentialId: '8ASHWNKZGLU5',
+      credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/8ASHWNKZGLU5',
+      image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+      skills: ['Algorithms', 'Data Structures', 'Problem Solving', 'Complexity Analysis']
     },
     {
-      title: 'Machine Learning Fundamentals',
-      issuer: 'Google Cloud',
-      date: 'May 2024',
-      description: 'Foundation course in machine learning concepts, supervised and unsupervised learning, model evaluation, and practical ML implementation.',
-      credentialId: 'GCP-ML-2024-321',
+      title: 'Databases and SQL for Data Science with Python',
+      issuer: 'IBM',
+      date: '2024',
+      description: 'Certification covering SQL fundamentals, database management, and how to use Python for data science applications involving relational databases.',
+      credentialId: 'URUHW3KC4JU6',
+      credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/URUHW3KC4JU6',
+      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg',
+      skills: ['SQL', 'Python', 'Databases', 'Data Science']
+    },
+    {
+      title: 'Machine Learning with Python',
+      issuer: 'IBM',
+      date: '2024',
+      description: 'Foundation course in machine learning concepts, supervised and unsupervised learning, model evaluation, and practical ML implementation using Python.',
+      credentialId: 'M53KCYCHE3LD',
+      credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/M53KCYCHE3LD',
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
-      skills: ['Machine Learning', 'Python', 'TensorFlow', 'Scikit-learn']
+      skills: ['Machine Learning', 'Python', 'Scikit-learn', 'Data Analysis']
     }
   ];
 
@@ -218,10 +222,15 @@ const Certifications: React.FC = () => {
                     <span className="text-xs dark:text-gray-400 light:text-gray-600 font-mono truncate">
                       [{cert.credentialId}]
                     </span>
-                    <button className="flex items-center space-x-1 dark:text-green-400 light:text-green-600 hover:dark:text-green-300 hover:light:text-green-700 transition-colors duration-200 text-xs">
-                      <span>Verify</span>
+                    <a 
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-1 dark:text-green-400 light:text-green-600 hover:dark:text-green-300 hover:light:text-green-700 transition-colors duration-200 text-xs"
+                    >
+                      <span>View</span>
                       <ExternalLink size={12} />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

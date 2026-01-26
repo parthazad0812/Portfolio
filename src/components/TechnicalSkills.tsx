@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { Terminal, Database, Layout, Wrench } from 'lucide-react';
 
 const TechnicalSkills: React.FC = () => {
   const sectionRef = useScrollAnimation({ threshold: 0.15 });
@@ -7,39 +8,23 @@ const TechnicalSkills: React.FC = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      skills: [
-        { name: 'React.js', level: 85 },
-        { name: 'JavaScript', level: 90 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'HTML & CSS', level: 95 },
-      ]
+      icon: <Layout className="w-5 h-5" />,
+      skills: ['React.js', 'JavaScript', 'HTML & CSS', 'Tailwind CSS']
     },
     {
       title: 'Backend',
-      skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 80 },
-        { name: 'Python', level: 90 },
-        { name: 'MongoDB', level: 75 },
-      ]
+      icon: <Terminal className="w-5 h-5" />,
+      skills: ['Node.js', 'Express.js', 'Python', 'PostgreSQL']
     },
     {
-      title: 'Data & Analytics',
-      skills: [
-        { name: 'SQL', level: 85 },
-        { name: 'Python', level: 90 },
-        { name: 'Pandas', level: 80 },
-        { name: 'NumPy', level: 75 },
-      ]
+      title: 'Data',
+      icon: <Database className="w-5 h-5" />,
+      skills: ['SQL', 'Python', 'Pandas', 'NumPy']
     },
     {
-      title: 'Tools & Platforms',
-      skills: [
-        { name: 'Git & GitHub', level: 90 },
-        { name: 'VS Code', level: 95 },
-        { name: 'Postman', level: 85 },
-        { name: 'Figma', level: 70 },
-      ]
+      title: 'Tools',
+      icon: <Wrench className="w-5 h-5" />,
+      skills: ['Git & GitHub', 'VS Code', 'Postman', 'MongoDB']
     }
   ];
 
@@ -49,62 +34,118 @@ const TechnicalSkills: React.FC = () => {
       id="skills" 
       className="py-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900"></div>
+      {/* Dark matrix-like background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-black to-slate-950"></div>
       
-      {/* Animated background elements */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-green-500/4 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-green-500/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+      {/* Animated grid lines */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(rgba(34, 197, 94, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 197, 94, 0.3) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+      
+      {/* Glowing orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Terminal-style header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text">
-            {'<Skills />'}
+          <div className="inline-block mb-6">
+            <div className="flex items-center justify-center space-x-2 text-green-400 font-mono text-sm mb-2">
+              <span className="animate-pulse">●</span>
+              <span className="text-gray-500">system@portfolio</span>
+              <span className="text-green-400">~</span>
+              <span className="text-gray-400">$</span>
+              <span className="text-green-300">cat skills.json</span>
+              <span className="animate-pulse text-green-400">▊</span>
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-mono">
+            <span className="text-green-400">{'<'}</span>
+            <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">Skills</span>
+            <span className="text-green-400">{' />'}</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-300">
-            {'// Technologies & tools that power innovative solutions'}
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto mb-8 shadow-lg shadow-green-500/50"></div>
+          <p className="max-w-3xl mx-auto text-sm text-gray-400 font-mono">
+            <span className="text-green-500">{'// '}</span>
+            <span className="text-gray-300">Technologies & tools that power innovative solutions</span>
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Skills Grid - Terminal Card Style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="group p-6 rounded-lg dark:border dark:border-green-500/20 light:border light:border-green-300/30 hover:dark:border-green-500/60 hover:light:border-green-400/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl dark:hover:shadow-green-500/20 light:hover:shadow-green-400/20 dark:bg-slate-800/40 light:bg-white/60 dark:backdrop-blur-sm light:backdrop-blur hover:dark:bg-slate-800/60 light:hover:bg-white/80 animate-scroll-in"
+              className="group relative animate-scroll-in"
               style={{
-                animationDelay: `${categoryIndex * 100}ms`
+                animationDelay: `${categoryIndex * 150}ms`
               }}
             >
-              <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-green-500/5 dark:to-transparent light:bg-gradient-to-br light:from-green-500/10 light:to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              {/* Card glow effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg blur opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
               
-              <h3 className="text-xl font-bold dark:text-white light:text-gray-900 mb-6 text-center group-hover:dark:text-green-400 group-hover:light:text-green-600 transition-colors duration-300 relative z-10">
-                {'{ ' + category.title + ' }'}
-              </h3>
-              <div className="space-y-4 relative z-10">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium dark:text-gray-300 light:text-gray-700 font-mono">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs dark:text-green-400 light:text-green-700 font-semibold dark:bg-green-500/10 light:bg-green-500/20 px-2 py-1 rounded">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full dark:bg-slate-900/50 light:bg-gray-300/30 rounded-full h-3 overflow-hidden dark:border dark:border-green-500/30 light:border light:border-green-400/30 dark:backdrop-blur-sm light:backdrop-blur">
-                      <div
-                        className="h-3 dark:bg-gradient-to-r dark:from-cyan-400 dark:via-green-400 dark:to-emerald-500 light:bg-gradient-to-r light:from-green-500 light:via-green-600 light:to-green-700 rounded-full transition-all duration-1500 ease-out transform origin-left dark:shadow-lg dark:shadow-green-500/60 light:shadow-lg light:shadow-green-400/40"
-                        style={{
-                          width: `${skill.level}%`,
-                          animation: `fillProgress 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${skillIndex * 0.15}s both`
-                        }}
-                      ></div>
-                    </div>
+              {/* Terminal card */}
+              <div className="relative bg-slate-900/90 border border-green-500/30 rounded-lg overflow-hidden backdrop-blur-sm hover:border-green-400/60 transition-all duration-300">
+                {/* Terminal header */}
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-green-500/20">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                   </div>
-                ))}
+                  <span className="text-xs text-gray-500 font-mono">{category.title.toLowerCase()}.sh</span>
+                </div>
+                
+                {/* Terminal content */}
+                <div className="p-5">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <span className="text-green-400">{category.icon}</span>
+                    <h3 className="text-lg font-bold text-green-400 font-mono">
+                      {category.title}
+                    </h3>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div 
+                        key={skillIndex} 
+                        className="flex items-center space-x-2 group/skill"
+                      >
+                        <span className="text-green-500 font-mono text-xs">{'>'}</span>
+                        <span className="text-sm font-mono text-gray-300 group-hover/skill:text-green-400 transition-colors duration-200 cursor-default">
+                          {skill}
+                        </span>
+                        <span className="text-green-500/0 group-hover/skill:text-green-500 transition-all duration-200 text-xs">✓</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Terminal prompt */}
+                  <div className="mt-4 pt-3 border-t border-green-500/10">
+                    <span className="text-xs font-mono text-gray-500">
+                      <span className="text-green-400">$</span> loaded {category.skills.length} modules
+                      <span className="animate-pulse text-green-400 ml-1">_</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom decorative element */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center space-x-3 px-6 py-3 bg-slate-900/60 border border-green-500/30 rounded-full backdrop-blur-sm">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="text-sm font-mono text-green-400">
+              system.skills.status: <span className="text-emerald-400">active</span>
+            </span>
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          </div>
         </div>
       </div>
     </section>
