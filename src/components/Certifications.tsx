@@ -3,7 +3,7 @@ import { Award, ExternalLink, Calendar, ChevronLeft, ChevronRight } from 'lucide
 
 const Certifications: React.FC = () => {
   const scrollContainer = useRef<HTMLDivElement>(null);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>([false, false, false, false]);
+  const [visibleItems, setVisibleItems] = useState<boolean[]>([false, false, false, false, false]);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -102,6 +102,16 @@ const Certifications: React.FC = () => {
       credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/M53KCYCHE3LD',
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
       skills: ['Machine Learning', 'Python', 'Scikit-learn', 'Data Analysis']
+    },
+    {
+      title: 'Javascript Programming Essentials',
+      issuer: 'IBM',
+      date: '2026',
+      description: 'Comprehensive certification covering JavaScript fundamentals, programming concepts, and essential skills for web development with hands-on practical applications.',
+      credentialId: '1PAQOFRL8S6B',
+      credentialUrl: 'https://www.coursera.org/account/accomplishments/verify/1PAQOFRL8S6B',
+      image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg',
+      skills: ['JavaScript', 'Web Development', 'Programming', 'Frontend', 'Backend']
     }
   ];
 
