@@ -289,7 +289,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ExternalLink, FileText, Code2 } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, FileText, Code2 } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [currentSkill, setCurrentSkill] = useState('');
