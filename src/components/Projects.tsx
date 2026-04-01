@@ -260,7 +260,7 @@ const Projects: React.FC = () => {
         "AI-powered career guidance platform helping users discover career paths, get personalized recommendations, and track their professional growth.",
       image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
       tags: ["React", "Node.js", "AI/ML", "Vercel"],
-      github: "#",
+      github: "https://github.com/parthazad0812/AI_Career_Coach",
       live: "https://careerpilot-ashy.vercel.app/",
     },
     {
@@ -269,7 +269,7 @@ const Projects: React.FC = () => {
         "Modern car rental platform with seamless booking experience, vehicle browsing, and rental management features.",
       image: "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg",
       tags: ["React", "TypeScript", "Tailwind", "Vercel"],
-      github: "#",
+      github: "https://github.com/Dhruv-201004/Wheel-O-Rent",
       live: "https://wheel-o-rent.vercel.app/",
     },
     {
