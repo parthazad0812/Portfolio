@@ -73,6 +73,16 @@ const Certifications: React.FC = () => {
       image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg',
       skills: ['Data Science', 'Python', 'Machine Learning', 'Data Analysis']
     },
+     {
+      title: 'ServiceNow - Certified System Administrator (CSA)',
+      issuer: 'ServiceNow',
+      date: '2026',
+      description: 'Industry certification validating core ServiceNow platform administration skills, including instance configuration, user management, data handling, and workflow fundamentals.',
+      credentialId: 'CSA',
+      credentialUrl: 'https://drive.google.com/file/d/1emVFI4_XDPeZBYUuPeNnfDpVadgxyue2/view?usp=sharing',
+      image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg',
+      skills: ['ServiceNow', 'System Administration', 'ITSM', 'Workflow Automation']
+    },
     {
       title: 'Algorithmic Toolbox',
       issuer: 'Coursera',
@@ -113,6 +123,7 @@ const Certifications: React.FC = () => {
       image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg',
       skills: ['JavaScript', 'Web Development', 'Programming', 'Frontend', 'Backend']
     }
+   
   ];
 
   return (

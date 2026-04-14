@@ -273,14 +273,17 @@ const Projects: React.FC = () => {
       live: "https://wheel-o-rent.vercel.app/",
     },
     {
-      title: "Resume Insight",
+      title: "Fake News Detection System",
       description:
-        "Smart resume analysis tool that provides insights, suggestions, and improvements for better job applications.",
-      image: "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg",
-      tags: ["Python", "NLP", "Flask", "Machine Learning"],
-      github: "#",
-      live: "https://resume-insight.onrender.com/",
+        "Machine learning based system to classify news articles as fake or real using NLP techniques and trained models.",
+      image: "https://images.pexels.com/photos/7567529/pexels-photo-7567529.jpeg",
+      tags: ["Python", "Machine Learning", "NLP", "Google Colab"],
+      github:
+        "https://github.com/parthazad0812/Fake-News-Detection-System-using-Machine-Learning",
+      live:
+        "https://colab.research.google.com/drive/1wPsNGYjHGCDJY8oHqWDdbEKLOD4GEyCB?usp=sharing",
     },
+
     {
       title: "SuperStore Sales Analysis & 15-Day Forecast",
       description:
