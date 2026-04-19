@@ -222,18 +222,24 @@ const Projects: React.FC = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = () => {
-    if (scrollContainer.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    if (!scrollContainer.current) {
+      return;
     }
+
+    const { scrollLeft, scrollWidth, clientWidth } = scrollContainer.current;
+    const maxScrollLeft = Math.max(0, scrollWidth - clientWidth);
+    const nextCanScrollLeft = scrollLeft > 2;
+    const nextCanScrollRight = scrollLeft < maxScrollLeft - 2;
+
+    setCanScrollLeft((current) => current === nextCanScrollLeft ? current : nextCanScrollLeft);
+    setCanScrollRight((current) => current === nextCanScrollRight ? current : nextCanScrollRight);
   };
 
   useEffect(() => {
     checkScroll();
     const container = scrollContainer.current;
     if (container) {
-      container.addEventListener('scroll', checkScroll);
+      container.addEventListener('scroll', checkScroll, { passive: true });
       window.addEventListener('resize', checkScroll);
       return () => {
         container.removeEventListener('scroll', checkScroll);
@@ -249,7 +255,8 @@ const Projects: React.FC = () => {
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
-      setTimeout(checkScroll, 300);
+      window.requestAnimationFrame(checkScroll);
+      setTimeout(checkScroll, 450);
     }
   };
 
@@ -318,15 +325,15 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Horizontal Scroll Container with External Navigation */}
-        <div className="relative group px-4">
+        <div className="relative group overflow-visible px-12 sm:px-14 lg:px-16">
           {/* Left Arrow - Outside */}
           <button
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}
-            className={`absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 hidden md:flex items-center justify-center ${
+            className={`absolute -left-2 sm:-left-3 lg:-left-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-20 disabled:grayscale disabled:shadow-none disabled:pointer-events-none hover:scale-110 ${
               canScrollLeft
                 ? 'dark:bg-gradient-to-r dark:from-green-500 dark:to-green-600 dark:hover:from-green-400 dark:hover:to-green-500 dark:text-white dark:shadow-green-500/50 light:bg-green-500 light:hover:bg-green-600 light:text-white light:shadow-green-500/40 cursor-pointer'
-                : 'dark:bg-gray-600/50 dark:text-gray-400 light:bg-gray-300/50 light:text-gray-500 cursor-not-allowed opacity-50'
+                : 'dark:bg-gray-600/30 dark:text-gray-400 light:bg-gray-300/30 light:text-gray-500 cursor-not-allowed opacity-25 grayscale'
             }`}
           >
             <ChevronLeft className="w-6 h-6" />
@@ -336,7 +343,7 @@ const Projects: React.FC = () => {
           <button
             onClick={() => scroll('right')}
             disabled={!canScrollRight}
-            className={`absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 hidden md:flex items-center justify-center ${
+            className={`absolute -right-2 sm:-right-3 lg:-right-4 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center p-2 md:p-3 rounded-full shadow-lg transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-20 disabled:grayscale disabled:shadow-none disabled:pointer-events-none hover:scale-110 ${
               canScrollRight
                 ? 'dark:bg-gradient-to-r dark:from-green-500 dark:to-green-600 dark:hover:from-green-400 dark:hover:to-green-500 dark:text-white dark:shadow-green-500/50 light:bg-green-500 light:hover:bg-green-600 light:text-white light:shadow-green-500/40 cursor-pointer'
                 : 'dark:bg-gray-600/50 dark:text-gray-400 light:bg-gray-300/50 light:text-gray-500 cursor-not-allowed opacity-50'
@@ -348,7 +355,8 @@ const Projects: React.FC = () => {
           {/* Scrollable Projects Container */}
           <div
             ref={scrollContainer}
-            className="flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+            onScroll={checkScroll}
+            className="flex gap-6 overflow-x-auto px-4 sm:px-6 pb-4 scroll-smooth snap-x snap-mandatory scrollbar-hide"
             style={{
               scrollBehavior: 'smooth',
               msOverflowStyle: 'none',
@@ -360,7 +368,7 @@ const Projects: React.FC = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className="group flex-shrink-0 w-full sm:w-96 dark:bg-slate-800/40 light:bg-white/80 dark:border dark:border-green-500/20 light:border light:border-green-300/30 hover:dark:border-green-500/60 hover:light:border-green-400/60 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg dark:hover:shadow-green-500/20 light:hover:shadow-green-400/20 dark:hover:bg-slate-800/60 light:hover:bg-white/90 backdrop-blur-sm snap-start will-change-transform"
+                className="group flex-shrink-0 w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] dark:bg-slate-800/40 light:bg-white/80 dark:border dark:border-green-500/20 light:border light:border-green-300/30 hover:dark:border-green-500/60 hover:light:border-green-400/60 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg dark:hover:shadow-green-500/20 light:hover:shadow-green-400/20 dark:hover:bg-slate-800/60 light:hover:bg-white/90 backdrop-blur-sm snap-start will-change-transform"
               >
                 {/* Image + Overlay */}
                 <div className="relative overflow-hidden h-48">
@@ -374,11 +382,11 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-5">
+                <div className="p-5 flex flex-col flex-1">
                   <h3 className="text-lg font-bold dark:text-white light:text-gray-900 mb-2 group-hover:dark:text-green-400 group-hover:light:text-green-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="dark:text-gray-300 light:text-gray-700 mb-4 leading-relaxed text-sm line-clamp-2">
+                  <p className="dark:text-gray-300 light:text-gray-700 mb-4 leading-relaxed text-sm flex-1">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -392,7 +400,7 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
                   {/* Links at bottom right */}
-                  <div className="flex justify-end space-x-3 pt-3 border-t dark:border-green-500/10 light:border-green-300/20">
+                  <div className="flex justify-end space-x-3 pt-3 mt-auto border-t dark:border-green-500/10 light:border-green-300/20">
                     {project.github !== "#" && (
                       <a
                         href={project.github}
@@ -428,7 +436,7 @@ const Projects: React.FC = () => {
             href="https://github.com/parthazad0812"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-3 bg-green-500/20 border border-green-500/50 hover:bg-green-500/40 hover:border-green-500/80 text-green-400 hover:text-green-300 font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
+            className="inline-flex items-center space-x-2 px-8 py-3 dark:bg-green-500/20 light:bg-green-50 border border-green-500/50 dark:hover:bg-green-500/40 light:hover:bg-green-100 hover:border-green-500/80 dark:text-green-400 light:text-green-700 dark:hover:text-green-300 light:hover:text-green-800 font-medium rounded-lg transition-all duration-300 hover:shadow-lg dark:hover:shadow-green-500/25 light:hover:shadow-green-400/20"
           >
             <Github size={20} />
             <span>View All Projects</span>

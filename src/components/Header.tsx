@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 
 interface HeaderProps {
-  darkMode?: boolean;
-  toggleTheme?: () => void;
+  darkMode: boolean;
+  toggleTheme: () => void;
 }
 
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ darkMode, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const darkMode = true; // Always use dark mode
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,12 +71,26 @@ const Header: React.FC<HeaderProps> = () => {
             </div>
           </div>
 
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? 'border-green-500/30 bg-slate-900/60 text-green-400 hover:border-green-500/60 hover:bg-slate-800'
+                  : 'border-green-300/50 bg-white/80 text-green-700 hover:border-green-500 hover:bg-green-50'
+              }`}
+              aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
+              title={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+              <span className="hidden sm:inline">{darkMode ? 'Light' : 'Dark'}</span>
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg transition-colors duration-300 ${
+              className={`p-2 rounded-lg transition-colors duration-300 md:hidden ${
                 darkMode ? 'text-gray-400 hover:text-green-400' : 'text-gray-600 hover:text-green-600'
               }`}
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

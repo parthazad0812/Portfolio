@@ -291,13 +291,13 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, FileText, Code2 } from 'lucide-react';
 
+const skills = ['Full Stack Developer', 'Data Analyst', 'Backend Developer', 'DSA Expert', 'Problem Solver'];
+
 const Hero: React.FC = () => {
   const [currentSkill, setCurrentSkill] = useState('');
   const [skillIndex, setSkillIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const skills = ['Full Stack Developer', 'Data Analyst', 'Backend Developer', 'DSA Expert', 'Problem Solver'];
 
   useEffect(() => {
     const currentSkillText = skills[skillIndex];
@@ -322,7 +322,7 @@ const Hero: React.FC = () => {
     }, isDeleting ? 50 : 75);
 
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, skillIndex, skills]);
+  }, [charIndex, isDeleting, skillIndex]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -330,30 +330,30 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:bg-gradient-to-b light:from-gray-100 light:via-white light:to-gray-100">
       {/* Dynamic background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-green-500/15 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 dark:bg-green-500/15 light:bg-green-500/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 dark:bg-green-500/10 light:bg-sky-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 dark:bg-green-500/5 light:bg-green-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="space-y-8">
           {/* Intro */}
           <div className="space-y-4">
-            <p className="text-lg sm:text-xl text-green-400 font-medium animate-fade-in font-mono">
-              $ <span className="text-green-300">console</span>.<span className="text-green-500">log</span>(<span className="text-yellow-300">"Hello, I'm"</span>)
+            <p className="text-lg sm:text-xl dark:text-green-400 light:text-green-700 font-medium animate-fade-in font-mono">
+              $ <span className="dark:text-green-300 light:text-green-700">console</span>.<span className="text-green-600">log</span>(<span className="dark:text-yellow-300 light:text-amber-700">"Hello, I'm"</span>)
             </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white animate-slide-up glow-text">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold dark:text-white light:text-gray-950 animate-slide-up dark:glow-text">
               Parth Azad
             </h1>
 
             {/* Typing effect with code style */}
             <div className="h-20 flex items-center justify-center">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-green-400 font-mono">
-                <span className="text-slate-400">{'> '}</span>
-                <span className="inline-block min-w-[340px] text-center text-green-400">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-semibold dark:text-green-400 light:text-green-700 font-mono">
+                <span className="dark:text-slate-400 light:text-gray-500">{'> '}</span>
+                <span className="inline-block min-w-[340px] text-center dark:text-green-400 light:text-green-700">
                   {currentSkill}
                   <span className="animate-pulse text-green-500">_</span>
                 </span>
@@ -362,11 +362,11 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Description */}
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 leading-relaxed animate-fade-in-delayed font-mono">
-            <span className="text-green-400">// </span>
+          <p className="max-w-2xl mx-auto text-sm sm:text-base dark:text-gray-300 light:text-gray-700 leading-relaxed animate-fade-in-delayed font-mono">
+            <span className="dark:text-green-400 light:text-green-700">// </span>
             Transforming data into insights and building scalable solutions.
             <br/>
-            <span className="text-green-400">// </span>
+            <span className="dark:text-green-400 light:text-green-700">// </span>
             Specializing in backend architecture, algorithm optimization, and clean code.
           </p>
 
@@ -381,7 +381,7 @@ const Hero: React.FC = () => {
             </button>
             <a
               href="mailto:parthazad08@gmail.com"
-              className="group px-8 py-3 border-2 border-green-500/60 text-green-400 hover:text-white hover:bg-green-500/10 font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:border-green-400"
+              className="group px-8 py-3 border-2 border-green-500/60 dark:text-green-400 light:text-green-700 hover:text-white dark:hover:bg-green-500/10 light:hover:bg-green-600 font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:border-green-400"
             >
               {'{ '} Contact Me {' }'}
             </a>
@@ -393,7 +393,7 @@ const Hero: React.FC = () => {
               href="https://github.com/parthazad0812"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              className="group p-3 rounded-lg dark:bg-slate-800/50 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white"
               title="GitHub"
             >
               <Github className="w-6 h-6 transition-colors" />
@@ -402,7 +402,7 @@ const Hero: React.FC = () => {
               href="https://docs.google.com/document/d/19XYpFwXHXgp3phHd7NW2ynqNSxY09Kcl/edit?usp=sharing&ouid=104669824031844113651&rtpof=true&sd=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              className="group p-3 rounded-lg dark:bg-slate-800/50 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white"
               title="View Resume"
             >
               <FileText className="w-6 h-6 transition-colors" />
@@ -411,14 +411,14 @@ const Hero: React.FC = () => {
               href="https://www.linkedin.com/in/parth-azad-7b749a281/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              className="group p-3 rounded-lg dark:bg-slate-800/50 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white"
               title="LinkedIn"
             >
               <Linkedin className="w-6 h-6 transition-colors" />
             </a>
             <a
               href="mailto:parthazad08@gmail.com"
-              className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              className="group p-3 rounded-lg dark:bg-slate-800/50 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white"
               title="Email"
             >
               <Mail className="w-6 h-6 transition-colors" />
@@ -427,7 +427,7 @@ const Hero: React.FC = () => {
               href="https://codolio.com/profile/usnFDuX3"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-lg bg-slate-800/50 border border-green-500/20 hover:border-green-500/60 text-gray-400 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/30 hover:bg-slate-800"
+              className="group p-3 rounded-lg dark:bg-slate-800/50 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-all duration-300 hover:scale-110 hover:shadow-lg dark:hover:shadow-green-500/30 light:hover:shadow-green-400/20 dark:hover:bg-slate-800 light:hover:bg-white"
               title="Codolio"
             >
               <Code2 className="w-6 h-6 transition-colors" />
@@ -438,7 +438,7 @@ const Hero: React.FC = () => {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => scrollToSection('about')}
-              className="group p-3 rounded-full text-green-400 hover:text-green-300 transition-all duration-300 bg-slate-800/30 border border-green-500/20 hover:border-green-500/60 backdrop-blur-sm animate-bounce hover:shadow-lg hover:shadow-green-500/20"
+              className="group p-3 rounded-full text-green-500 hover:text-green-400 transition-all duration-300 dark:bg-slate-800/30 light:bg-white/80 border border-green-500/20 hover:border-green-500/60 backdrop-blur-sm animate-bounce hover:shadow-lg dark:hover:shadow-green-500/20 light:hover:shadow-green-400/20"
             >
               <ChevronDown size={32} className="group-hover:scale-110 transition-transform" />
             </button>

@@ -34,19 +34,19 @@ const About: React.FC = () => {
       id="about" 
       className="py-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
+      <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:bg-gradient-to-b light:from-gray-100 light:via-gray-50 light:to-gray-100"></div>
       
       {/* Animated background elements */}
-      <div className="absolute top-10 right-20 w-72 h-72 bg-green-500/5 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-10 left-20 w-72 h-72 bg-green-500/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-10 right-20 w-72 h-72 dark:bg-green-500/5 light:bg-green-500/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 left-20 w-72 h-72 dark:bg-green-500/3 light:bg-sky-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text">
+          <h2 className="text-4xl md:text-5xl font-bold dark:text-white light:text-gray-900 mb-6 dark:glow-text">
             {'<About />'}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent mx-auto mb-8"></div>
-          <p className="max-w-3xl mx-auto text-lg text-gray-300 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg dark:text-gray-300 light:text-gray-700 leading-relaxed">
             Transforming ideas into elegant, efficient, and scalable digital solutions
           </p>
         </div>
